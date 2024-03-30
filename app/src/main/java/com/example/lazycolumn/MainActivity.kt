@@ -156,6 +156,7 @@ fun ListItems(name: String) {
                         painterResource(id = R.drawable.android),
                         contentDescription = ""
                     )
+
                 }
             }
         }
