@@ -55,9 +55,10 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             LazyColumnTheme {
+//                ImageView()
                 // A surface container using the 'background' color from the theme
-//                RecyclerView()
-                ImageView()
+                RecyclerView()
+
             }
         }
     }
@@ -74,23 +75,15 @@ fun RecyclerView(names: List<String> = List(1000) { "$it" }) {
 
 @Composable
 fun ImageView() {
-
-    Box(
+    Image(
+        painter = painterResource(id = R.drawable.img1),
+        contentDescription = "image",
         modifier = Modifier
-            .padding(10.dp)
-            .clip(CircleShape)
-            .background(Color.Yellow)
-            .size(200.dp),
-        contentAlignment = Alignment.Center,
-    ) {
-
-        Image(
-            painter = painterResource(id = R.drawable.img1),
-            contentDescription = "image",
-            modifier = Modifier.fillMaxHeight(),
-            contentScale = ContentScale.FillHeight
-        )
-    }
+            .padding(5.dp)
+            .size(250.dp)
+            .clip(CircleShape),
+        contentScale = ContentScale.Crop
+    )
 }
 
 
@@ -105,8 +98,6 @@ fun ListItems(name: String) {
             stiffness = Spring.StiffnessLow
         )
     )
-
-
 
     Surface(
         color = Color.Cyan,
